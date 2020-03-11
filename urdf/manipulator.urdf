@@ -220,19 +220,19 @@
    <!-- Elo 2-->
    <link name="Elo2">
     <visual>
-      <origin xyz="0 0 0.03810000" rpy="0 0 0" />
+      <origin xyz="0 0.22765252  -0.02935000" rpy="0 0 0" />
       <geometry>
 	      <mesh filename="package://manipulator_description/meshes/elo2.dae" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0.03810000" rpy="0 0 0 " />
+      <origin xyz="0 0.22765252 -0.02935000" rpy="0 0 0 " />
       <geometry>
         <mesh filename="package://manipulator_description/meshes/elo2.dae" />
       </geometry>
     </collision>
     <inertial>
-      <origin xyz="0 0 0.03810000" rpy="0 0 0"/>
+      <origin xyz="0 0.22765252  -0.02935000" rpy="0 0 0"/>
       <mass value="0.88616841"/>
       <inertia ixx="1.58419493e-2"  ixy="-2.56476794e-4"  ixz="1.21455620e-6" iyy="1.77005347e-3" iyz="2.29322588e-4" izz="1.67884775e-2" />
     </inertial>
@@ -240,8 +240,38 @@
   <joint name="elo2_motor2" type="continuous">
     <parent link="Motor2"/>
     <child link="Elo2"/>
-    <origin xyz="0 -0.03 0" rpy="0 0 0"/>
+    <origin xyz="${0.2275-0.22765252} -0.04 ${-0.067+0.0381+0.02935}" rpy="0 0 -1.571"/>
     <axis xyz="1 0 0" rpy="0 0 0"/>
   </joint>
+
+
+  <!-- Motor 3 R-->
+   <link name="Motor3R">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 -0.75" />
+      <geometry>
+	      <mesh filename="package://manipulator_description/meshes/motor3R.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 -0.75 " />
+      <geometry>
+        <mesh filename="package://manipulator_description/meshes/motor3R.dae" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 -0.75"/>
+      <mass value="0.16505359"/>
+      <inertia ixx="7.89080915e-5"  ixy="-3.13361612e-9"  ixz="4.40720922e-9" iyy="4.40037283e-5" iyz="-2.02636752e-6" izz="6.23905424e-5" />
+    </inertial>
+    </link>
+  <joint name="motor3r_elo2" type="fixed">
+    <parent link="Elo2"/>
+    <child link="Motor3R"/>
+    <origin xyz="0.026 ${0.47211676-0.02086310} -0.036" rpy="0 1.571 0"/>
+    <!-- <axis xyz="0 0 1" rpy="0 0 0"/> -->
+  </joint>
+
+  
 
 </robot>
